@@ -40,3 +40,8 @@ redux设计核心是单向数据流
 
 通过action creator 创建请求成功、请求失败、请求开始，state存储loading、error、success, 异步需要中间件redux-thunk
 
+## Middleware 
+
+React redux 对异步一无所知， 同步执行的过程，需要中间件扩展获取日志、异步。来支持异步请求返回数据后再reducer
+
+
