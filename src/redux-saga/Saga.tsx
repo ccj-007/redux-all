@@ -1,22 +1,26 @@
 import React from 'react'
+import { store, action } from "./saga-main";
 
-export default function Saga({ value, onIncrement, onDecrement, onIncrementAsync }) {
+export default function Saga() {
   return (
     <div>
-      <button onClick={onIncrementAsync}>
+      <button onClick={() => action('ADD_ASYNC')}>
         Increment after 1 second
       </button>
       {' '}
-      <button onClick={onIncrement}>
+      <button onClick={() => action('INCREMENT')}>
         Increment
       </button>
       {' '}
-      <button onClick={onDecrement}>
+      <button onClick={() => action('DECREMENT')}>
         Decrement
+      </button>
+      <button onClick={() => action('PRODUCTS_REQUESTED')}>
+        Effects
       </button>
       <hr />
       <div>
-        Clicked: <>{value.count} </>times
+        Clicked: <>{store.getState().count} </>times
       </div>
     </div >
   )

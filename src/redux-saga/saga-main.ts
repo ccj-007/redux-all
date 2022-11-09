@@ -1,14 +1,14 @@
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 
-import rootSaga from './sagas'
+import rootSaga from './sagaAsync'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const countReducer = (state = {count: 0}, action: any) => {
   switch(action.type) {
-    case 'ADD': return {count: state.count + 2}
-    case 'DEL': return {count: state.count - 2}
+    case 'INCREMENT': return {count: state.count + 2}
+    case 'DECREMENT': return {count: state.count - 2}
     default: return state
   }
 }

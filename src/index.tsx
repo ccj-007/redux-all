@@ -3,20 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux'
-import { store } from "./react-redux/rr-main";
+import Store from './mobx/mobx';
+import { Provider } from "mobx-react"
+// import { Provider } from 'react-redux'
+// import { store } from "./react-redux/rr-main";
 // import { store } from "./react-toolkit/index";
 // import { store } from "./redux-saga/saga-main";
+// import { HashRouter } from "react-router-dom";
 
-import './redux/redux';
+
+const store = {
+  store: new Store()
+}
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 function render() {
   root.render(
     <React.StrictMode>
-      <Provider store={store}>
+      <Provider {...store}>
+        {/* <HashRouter> */}
         <App />
+        {/* </HashRouter> */}
       </Provider>
     </React.StrictMode>
   );
