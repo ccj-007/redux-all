@@ -22,7 +22,7 @@ reducer纯函数： reducer一定是纯函数，可控
 
 ### Action 指令
 
-通知对应的执行的reducer ，
+通知对应的执行的reducer
 
 Action Creator创建函数  用于返回action，方便测试和移植
 
@@ -39,4 +39,3 @@ reducer 纯函数中一定不能做 1.修改传入的参数 2. 执行api请求�
 redux设计核心是单向数据流
 
 通过action creator 创建请求成功、请求失败、请求开始，state存储loading、error、success, 异步需要中间件redux-thunk
-
