@@ -1,11 +1,23 @@
 
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 
-const countActions = {
+/**
+ * 打印每个 dispatch 的 action 和调用后的状态日志
+ */
+ const logger = (store: { getState: () => any; }) => (next: (arg0: { type: any; }) => any) => (action: { type: any; }) => {
+  console.group(action.type)
+  console.info('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  console.groupEnd()
+  return result
+}
+
+export const countActions = {
   add: () => ({type: 'ADD'}),
   del: () => ({type: 'DEL'})
 }
-const count2Actions = {
+export const count2Actions = {
   add: () => ({type: 'ADD'}),
   del: () => ({type: 'DEL'})
 }
@@ -30,16 +42,18 @@ const combineStore = combineReducers({
   count2Reducer,
   countReducer
 })
-const store = createStore(combineStore)
+
+//@ts-ignore
+export const store = createStore(combineStore, compose(applyMiddleware(logger,)))
 
 const unsubscribe  = store.subscribe(() => {
   console.log(store.getState());
 })
 
-store.dispatch(countActions.add())
-store.dispatch(countActions.del())
-store.dispatch(count2Actions.add())
-store.dispatch(count2Actions.del())
+// store.dispatch(countActions.add())
+// store.dispatch(countActions.del())
+// store.dispatch(count2Actions.add())
+// store.dispatch(count2Actions.del())
 
 //停止监听state更新
 unsubscribe()
