@@ -9,3 +9,10 @@ createReducer action自动映射reducer immer
 createSlice() 接收一组 reducer 函数的对象，一个 slice 切片名和初始状态 initial state，并自动生成具有相应 action creator 和 action type 的 slice reducer。
 
 createSelector
+
+## RTK query 查询 
+
+高级数据获取和缓存工具   data error loading 
+
+自定义查询 、 缓存 、 加载、 重新获取
+

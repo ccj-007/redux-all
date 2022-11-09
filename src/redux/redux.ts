@@ -44,7 +44,9 @@ const combineStore = combineReducers({
 })
 
 //@ts-ignore
-export const store = createStore(combineStore, compose(applyMiddleware(logger,)))
+// export const store = createStore(combineStore, compose(applyMiddleware(logger)))
+
+export const store = createStore(combineStore, (applyMiddleware(logger)))
 
 const unsubscribe  = store.subscribe(() => {
   console.log(store.getState());
