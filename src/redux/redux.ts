@@ -4,7 +4,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 /**
  * 打印每个 dispatch 的 action 和调用后的状态日志
  */
- const logger = (store: { getState: () => any; }) => (next: (arg0: { type: any; }) => any) => (action: { type: any; }) => {
+const logger = (store: { getState: () => any; }) => (next: (arg0: { type: any; }) => any) => (action: { type: any; }) => {
   console.group(action.type)
   console.info('dispatching', action)
   let result = next(action)
@@ -14,26 +14,26 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 }
 
 export const countActions = {
-  add: () => ({type: 'ADD'}),
-  del: () => ({type: 'DEL'})
+  add: () => ({ type: 'ADD' }),
+  del: () => ({ type: 'DEL' })
 }
 export const count2Actions = {
-  add: () => ({type: 'ADD'}),
-  del: () => ({type: 'DEL'})
+  add: () => ({ type: 'ADD' }),
+  del: () => ({ type: 'DEL' })
 }
 
-const countReducer = (state = {count: 0}, action: any) => {
-  switch(action.type) {
-    case 'ADD': return {count: state.count + 1}
-    case 'DEL': return {count: state.count - 1}
+const countReducer = (state = { count: 0 }, action: any) => {
+  switch (action.type) {
+    case 'ADD': return { count: state.count + 1 }
+    case 'DEL': return { count: state.count - 1 }
     default: return state
   }
 }
 
-const count2Reducer = (state = {count: 0}, action: any) => {
-  switch(action.type) {
-    case 'ADD': return {count: state.count + 2}
-    case 'DEL': return {count: state.count - 2}
+const count2Reducer = (state = { count: 0 }, action: any) => {
+  switch (action.type) {
+    case 'ADD': return { count: state.count + 2 }
+    case 'DEL': return { count: state.count - 2 }
     default: return state
   }
 }
@@ -48,7 +48,7 @@ const combineStore = combineReducers({
 
 export const store = createStore(combineStore, (applyMiddleware(logger)))
 
-const unsubscribe  = store.subscribe(() => {
+const unsubscribe = store.subscribe(() => {
   console.log(store.getState());
 })
 

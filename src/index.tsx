@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Store from './mobx/mobx';
-import { Provider } from "mobx-react"
+// import { Provider } from "mobx-react"
 // import { Provider } from 'react-redux'
 // import { store } from "./react-redux/rr-main";
 // import { store } from "./react-toolkit/index";
@@ -22,11 +22,11 @@ const root = ReactDOM.createRoot(
 function render() {
   root.render(
     <React.StrictMode>
-      <Provider {...store}>
+      {/* <Provider {...store}> */}
         {/* <HashRouter> */}
         <App />
         {/* </HashRouter> */}
-      </Provider>
+      {/* </Provider> */}
     </React.StrictMode>
   );
 }

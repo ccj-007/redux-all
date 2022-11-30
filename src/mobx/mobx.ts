@@ -12,7 +12,6 @@ class Store {
         makeAutoObservable(this)
     }
 
-
     // 计算值是可以根据现有的状态或其它计算值衍生出的值.
     // 计算值不接受参数
     @computed

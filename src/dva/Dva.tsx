@@ -11,7 +11,6 @@ const Dva = ({ dispatch, products }) => {
   return (
     <div>
       <h2>List of Products</h2>
-
       {
         products && products.map((item, index) => {
           return (
